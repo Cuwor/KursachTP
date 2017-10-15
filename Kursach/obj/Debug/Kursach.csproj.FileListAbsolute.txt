@@ -1,0 +1,6 @@
+C:\Users\Cuwor\documents\visual studio 2017\Projects\Kursach\Kursach\bin\Debug\Kursach.exe.config
+C:\Users\Cuwor\documents\visual studio 2017\Projects\Kursach\Kursach\bin\Debug\Kursach.exe
+C:\Users\Cuwor\documents\visual studio 2017\Projects\Kursach\Kursach\bin\Debug\Kursach.pdb
+C:\Users\Cuwor\documents\visual studio 2017\Projects\Kursach\Kursach\obj\Debug\Kursach.csprojResolveAssemblyReference.cache
+C:\Users\Cuwor\documents\visual studio 2017\Projects\Kursach\Kursach\obj\Debug\Kursach.exe
+C:\Users\Cuwor\documents\visual studio 2017\Projects\Kursach\Kursach\obj\Debug\Kursach.pdb
