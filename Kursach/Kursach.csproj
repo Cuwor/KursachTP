@@ -47,6 +47,7 @@
     <Compile Include="Pravit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueCustom.cs" />
     <Compile Include="Relig.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Activator;
+using static System.Console;
 
 namespace Kursach
 {
@@ -12,7 +16,7 @@ namespace Kursach
         static void Main(string[] args)
         {
             string outputtext;
-            using (FileStream fstream = new FileStream("/new.txt",FileMode.OpenOrCreate))
+            using (FileStream fstream = new FileStream("new.txt",FileMode.OpenOrCreate))
             {
                 // преобразуем строку в байты
                 byte[] array = new byte[fstream.Length];
@@ -21,13 +25,59 @@ namespace Kursach
                 // декодируем байты в строку
                 outputtext = System.Text.Encoding.Default.GetString(array);
             }
-            Console.WriteLine(outputtext);
 
-            Architect relig = new Relig();
-            Architect pravit = new Pravit();
-            Architect grajdan = new Grajdan();
+            
 
-            Console.ReadKey();
+            QueueCustom qc = new QueueCustom();
+            foreach (var fullArray in outputtext.Split('\n'))
+            {
+                if (fullArray != String.Empty)
+                {
+                string[] a = fullArray.Split(':');
+                string[] b = a[1].Split(' ');
+                    var data =
+                        Assembly.LoadFrom("Kursach.exe")
+                            .DefinedTypes.ToList()
+                            .FindAll(type => type.IsSubclassOf(typeof(Architect))).ToArray();
+
+
+                    switch (a[0])
+                    {
+                        case "Религия":
+                            Relig relig = (Relig)CreateInstance(Type.GetType(data[2].FullName),b[1],b[0]);
+                            qc.Add(relig);
+                            break;
+                        case "Правительство":
+                            Pravit pravit = (Pravit)CreateInstance(Type.GetType(data[1].FullName),b[1],b[0]);
+                            qc.Add(pravit);
+                            break;
+                        case "Гражданство":
+                            Grajdan grajdan = (Grajdan)CreateInstance(Type.GetType(data[0].FullName),b[1],b[0]);
+                            qc.Add(grajdan);
+                            break;
+                    }
+                }
+
+            }
+            List<string> savingList = new List<string>();
+            var count = qc.Count;
+            for (int i = 0; i < count; i++)
+            {
+                var current = qc[i];
+
+                string bufvalue = string.Empty;
+                foreach (var currentProperty in current.GetType().GetProperties())
+                {
+                    bufvalue = bufvalue.Insert(0, currentProperty.GetValue(current) + " ") ;
+                }
+                bufvalue = bufvalue.Insert(0, current.GetType().Name + ":");
+                savingList.Add(bufvalue);
+            }
+            
+
+            File.WriteAllLines("output.txt", savingList);
+
+            
         }
     }
 }

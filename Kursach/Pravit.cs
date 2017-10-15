@@ -8,10 +8,12 @@ namespace Kursach
 {
     class Pravit:Architect
     {
-        private string _countryName;
-        public Pravit()
+        public string _countryName { get; }
+
+        public Pravit(string name, string ctryName)
         {
-            Name = "";
-        }
+            Name = name;
+            _countryName = ctryName;
+        } 
     }
 }

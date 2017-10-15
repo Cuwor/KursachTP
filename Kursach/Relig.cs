@@ -9,11 +9,28 @@ namespace Kursach
 {
     class Relig:Architect
     {
-        private Queue _konfess;
+        private enum _konfess
+        {
+            Hrist,
+            Budd,
+            Iuda,
+            Musul
+        }
+
+        public string _relig { get; }
 
         public Relig()
         {
-            Name = "dsa";
+        }
+
+        public Relig(string name, string relig)
+        {
+            Name = name;
+            _relig = relig;
+            //if (relig == _konfess.Hrist.ToString())
+            //{
+            //    _relig = _konfess.Hrist.ToString();
+            //}
         }
     }
 }
