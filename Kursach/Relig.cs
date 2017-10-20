@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,21 @@ namespace Kursach
     {
         private enum _konfess
         {
-            Hrist,
+            Привет,
             Budd,
             Iuda,
             Musul
         }
 
         public string _relig { get; }
+
+        
+
+        public override string ToString()
+        {
+            
+            return "Религия: "+_relig+", а храм называется "+Name;
+        }
 
         public Relig()
         {
@@ -26,11 +35,19 @@ namespace Kursach
         public Relig(string name, string relig)
         {
             Name = name;
-            _relig = relig;
-            //if (relig == _konfess.Hrist.ToString())
-            //{
-            //    _relig = _konfess.Hrist.ToString();
-            //}
+            switch (relig)
+            {
+                case "Budd":
+                    _relig = "Буддизм"; break;
+                case "Hrist":
+                    _relig = "Христианство"; break;
+                case "Iuda":
+                    _relig = "Иудаизм"; break;
+                case "Musul":
+                    _relig = "Мусульманство"; break;
+                default: _relig = "Не существует"; break;;
+            }
+            
         }
     }
 }

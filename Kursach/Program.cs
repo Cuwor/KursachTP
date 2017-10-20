@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Activator;
@@ -11,8 +12,8 @@ using static System.Console;
 
 namespace Kursach
 {
-    class Program
-    {
+    partial class Program
+    { 
         static void Main(string[] args)
         {
             string outputtext;
@@ -59,22 +60,18 @@ namespace Kursach
                 }
 
             }
+
             List<string> savingList = new List<string>();
             var count = qc.Count;
             for (int i = 0; i < count; i++)
             {
-                var current = qc[i];
-
-                string bufvalue = string.Empty;
-                foreach (var currentProperty in current.GetType().GetProperties())
-                {
-                    bufvalue = bufvalue.Insert(0, currentProperty.GetValue(current) + " ") ;
-                }
-                bufvalue = bufvalue.Insert(0, current.GetType().Name + ":");
-                savingList.Add(bufvalue);
+                savingList.Add(qc[i].ToString());
             }
-            
 
+
+
+
+            Sort(savingList.ToArray(), 0, count, string.Compare);
             File.WriteAllLines("output.txt", savingList);
 
             

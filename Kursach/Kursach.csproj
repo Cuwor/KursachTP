@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Architect.cs" />
     <Compile Include="Grajdan.cs" />
+    <Compile Include="HeapSort.cs" />
     <Compile Include="Pravit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

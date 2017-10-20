@@ -14,7 +14,11 @@ namespace Kursach
         {
             get { return _height1; }
         }
+        public override string ToString()
+        {
 
+            return "Гражданское здание высотой: " + _height + " и названием - " + Name;
+        }
         public Grajdan(string height, string name)
         {
             Name = name;
