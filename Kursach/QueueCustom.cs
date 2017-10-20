@@ -55,7 +55,6 @@ namespace Kursach
         // Вывод содержимого.
         public void Print()
         {
-            Write("Содержимое: ");
             Node cur = first;
             while (cur != null)
             {

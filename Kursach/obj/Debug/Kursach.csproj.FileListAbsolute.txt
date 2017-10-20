@@ -10,3 +10,4 @@ C:\Users\Cuwor\Documents\Visual Studio 2017\Projects\KursachTP\Kursach\bin\Debug
 C:\Users\Cuwor\Documents\Visual Studio 2017\Projects\KursachTP\Kursach\obj\Debug\Kursach.csprojResolveAssemblyReference.cache
 C:\Users\Cuwor\Documents\Visual Studio 2017\Projects\KursachTP\Kursach\obj\Debug\Kursach.exe
 C:\Users\Cuwor\Documents\Visual Studio 2017\Projects\KursachTP\Kursach\obj\Debug\Kursach.pdb
+C:\Users\Cuwor\Documents\Visual Studio 2017\Projects\KursachTP\Kursach\obj\Debug\Kursach.csproj.CoreCompileInputs.cache

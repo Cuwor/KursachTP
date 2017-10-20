@@ -18,7 +18,7 @@ namespace Kursach
             Musul
         }
 
-        public string _relig { get; }
+        private string _relig { get; }
 
         
 
